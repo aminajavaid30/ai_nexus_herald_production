@@ -1,0 +1,13 @@
+rss_feeds:
+  science_daily_rss:
+    description: "Sience Daily RSS Feed"
+    url: "https://www.sciencedaily.com/rss/computers_math/artificial_intelligence.xml"
+  mit_technology_review_rss:
+    description: "MIT Technology Review RSS Feed"
+    url: "https://www.technologyreview.com/feed/"
+  venturebeat_rss:
+    description: "VentureBeat RSS Feed"
+    url: "https://venturebeat.com/category/ai/feed/"
+  thegradient_rss:
+    description: "The Gradient RSS Feed"
+    url: "https://thegradient.pub/rss/"
