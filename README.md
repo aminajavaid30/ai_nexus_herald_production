@@ -60,7 +60,10 @@ pip install -r requirements.txt
 ### 3. **Add your API keys** - Create a .env file with:
 ```sh
 GROQ_API_KEY=...
-GMAIL_PASSWORD=...
+OPENAI_API_KEY=...
+LANGCHAIN_API_KEY=...
+LANGCHAIN_TRACING_V2=true
+LANGCHAIN_PROJECT="AI Nexus Herald"
 ```
 
 ### 4. Initialize the backend
@@ -77,6 +80,7 @@ streamlit run Home.py
 
 ## Folder Structure
 ```sh
+├── 📂 docs/ # Technical documentation
 ├── 📂 outputs/ # Generated newsletters and logs
 ├── 📂 resources/ # Static files like logos, images, etc.
 ├── 📂 src/
@@ -97,10 +101,19 @@ streamlit run Home.py
 │ │ ├── tools.py # Custom tools for agents
 │ │ └── utils.py # Utility functions
 │ └── 📂 frontend/
-│ ├── 📂 pages/
-│ │ ├── 1 Newsletter.py # Streamlit UI for newsletter generation
-│ ├── Home.py # Streamlit app entry point
-│ └── style.css # Custom CSS styles
+│ ├──── 📂 pages/
+│ │ ├──── 1 Newsletter.py # Streamlit UI for newsletter generation
+│ ├──── Home.py # Streamlit app entry point
+│ └──── style.css # Custom CSS styles
+├── 📂 tests/
+│ ├─── pytest.ini
+│ ├─── test_topics.py
+│ ├─── test_news.py
+│ ├─── test_newsletter.py
+│ ├─── test_topic_finder.py
+│ ├─── test_deep_researcher.py
+│ ├─── test_newsletter_writer.py
+│ ├─── test_orchestrator.py 
 ├── .env # Environment variables
 ├── .gitignore # Git ignored files
 ├── LICENSE # Project license
@@ -117,15 +130,15 @@ We use [DeepEval](https://github.com/confident-ai/deepeval) to evaluate:
 - Newsletter structure, clarity, and tone.
 
 ### 🧪 Unit & Integration Testing
-- Use `evaluation/` directory (planned) for Pytest-based testing.
-- Sample script: `evaluate_topics.py`, `evaluate_news.py`
+- Use `tests/` directory for Pytest-based testing using Deepeval.
+- Sample script: `test_topics.py`, `test_news.py`
 
 
 ## 🛡️ Guardrails AI Integration
 
 To ensure safety and robustness of the outputs, Guardrails is used to enforce:
-- ❗ **Toxicity detection** (via `ToxicLanguage`)
-- ❌ On violation: Automatically abort or sanitize input
+- ❗ **Toxicity detection** (via GuardRails AI `ToxicLanguage`)
+- ❌ On violation: Automatically abort
 
 
 ## 📡 LangSmith Monitoring
@@ -140,4 +153,4 @@ Monitor and trace each agent's execution in real-time using LangSmith:
 MIT License
 
 ## Acknowledgements
-Built as part of **AAIDC2025** - #AgenticAIDeveloperCertification2025 - using Streamlit, LangGraph, FastAPI, and GROQ API.
+Built as part of **AAIDC2025** - #AgenticAIDeveloperCertification2025 - using Streamlit, LangGraph, FastAPI, GROQ API, and OpenAI API.

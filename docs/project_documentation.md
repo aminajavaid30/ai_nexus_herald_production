@@ -126,6 +126,7 @@ Each stage builds on the previous, ensuring traceability and fact alignment thro
 
 ## 👩‍💻 Repo Structure
 ```sh
+├── 📂 docs/ # Technical documentation
 ├── 📂 outputs/ # Generated newsletters and logs
 ├── 📂 resources/ # Static files like logos, images, etc.
 ├── 📂 src/
