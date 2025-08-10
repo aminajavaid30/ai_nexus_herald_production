@@ -14,8 +14,6 @@ openai
 langsmith
 einops
 guardrails-ai
-guardrails-grhub-ban-list
-guardrails-grhub-toxic-language
 torch
 torchvision
 torchaudio
