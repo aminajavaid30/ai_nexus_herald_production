@@ -9,7 +9,7 @@ st.set_page_config(
     layout="wide")
 
 # Load external CSS
-style_path = os.path.join(os.path.dirname(__file__), "style.css")
+style_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "style.css")
 with open(style_path) as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
