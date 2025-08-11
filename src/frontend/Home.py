@@ -1,5 +1,6 @@
 import streamlit as st
 import requests
+import os
 
 # BACKEND_URL = "http://localhost:8000/generate"  # FastAPI endpoint Local Development
 BACKEND_URL = "https://ai-nexus-herald-production.onrender.com/generate"  # FastAPI endpoint Production
