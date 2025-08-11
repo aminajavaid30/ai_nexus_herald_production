@@ -141,7 +141,7 @@ def generate_summary_after_tests():
     yield
     generate_final_summary()
 
-
+# Rule-based test: Check if the data structure of generated news matches the expected format
 @pytest.mark.parametrize("dataset_index", ["0", "1", "2"])
 def test_data_structure_news(dataset_index):
     _, generated = load_datasets(dataset_index)
@@ -171,6 +171,7 @@ def test_data_structure_news(dataset_index):
     assert passed, f"Data structure test failed for dataset {dataset_index}"
 
 
+# LLM-as-a-Judge: Evaluate if the generated news articles are relevant to their assigned topic
 @pytest.mark.parametrize("dataset_index", ["0", "1", "2"])
 def test_news_relevance_to_topic(dataset_index):
     _, generated = load_datasets(dataset_index)

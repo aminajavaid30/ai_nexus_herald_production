@@ -197,7 +197,7 @@ def generate_summary_after_tests():
     generate_final_summary()
 
 
-# Rule-based test to ensure datasets are not empty
+# Rule-based test: Ensure datasets are not empty
 @pytest.mark.parametrize("dataset_index", ["0", "1", "2"])
 def test_basic_data_loading(dataset_index):
     rss_data, generated = load_datasets(dataset_index)
@@ -220,7 +220,7 @@ def test_basic_data_loading(dataset_index):
     assert len(generated_topics) > 0, "Generated topics dataset is empty."
 
 
-# Rule-based test to ensure data structure is correct
+# Rule-based test: Ensure data structure is correct
 @pytest.mark.parametrize("dataset_index", ["0", "1", "2"])
 def test_data_structure(dataset_index):
     rss_data, generated = load_datasets(dataset_index)
@@ -250,6 +250,7 @@ def test_data_structure(dataset_index):
         assert "topic" in news, f"generated[{idx}] missing 'topic' key"
 
 
+# LLM-as-a-Judge test: Evaluate news topic relevance to RSS titles
 @pytest.mark.parametrize("dataset_index", ["0", "1", "2"])
 def test_news_topic_relevance(dataset_index):
     rss_data, generated = load_datasets(dataset_index)

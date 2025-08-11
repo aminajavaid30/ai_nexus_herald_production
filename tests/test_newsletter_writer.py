@@ -165,6 +165,8 @@ def generate_summary_after_tests():
 # ------------------------
 # Tests
 # ------------------------
+
+# Rule-based test: Check if the newsletter writer agent generates a non-empty markdown
 @pytest.mark.parametrize("dataset_index", ["0", "1", "2"])
 def test_generation_and_structure(dataset_index):
     """Test newsletter generation produces non-empty markdown."""
@@ -190,6 +192,7 @@ def test_generation_and_structure(dataset_index):
     assert passed, "Newsletter markdown is empty or not a string."
 
 
+# LLM-based test: Evaluate newsletter relevancy and faithfulness to articles
 @pytest.mark.parametrize("dataset_index", ["0", "1", "2"])
 def test_newsletter_relevancy_and_faithfulness(dataset_index):
     """Evaluate that newsletter is relevant and faithful to articles."""

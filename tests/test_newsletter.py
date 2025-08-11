@@ -135,6 +135,7 @@ def generate_summary_after_tests():
     generate_final_summary()
 
 
+# Rule-based test: Check presence of newsletter and generated news
 @pytest.mark.parametrize("dataset_index", ["0", "1", "2"])
 def test_newsletter_and_generated_news_presence(dataset_index):
     generated = load_generated_news(dataset_index)
@@ -154,6 +155,7 @@ def test_newsletter_and_generated_news_presence(dataset_index):
     assert newsletter.strip(), f"Newsletter content for dataset {dataset_index} is empty."
 
 
+# LLM-as-a-Judge: Evaluate newsletter relevance to news articles
 @pytest.mark.parametrize("dataset_index", ["0", "1", "2"])
 def test_newsletter_relevance_to_news(dataset_index):
     generated = load_generated_news(dataset_index)

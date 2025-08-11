@@ -136,6 +136,7 @@ def generate_summary_after_tests():
 # Tests
 # --------------------------
 
+# LLM-as-a-judge: Check if the agent calls the tool correctly
 @pytest.mark.parametrize("dataset_index", ["0", "1", "2"])
 def test_tool_call_correctness(dataset_index):
     groq_api_key = os.getenv("GROQ_API_KEY")
@@ -169,6 +170,7 @@ def test_tool_call_correctness(dataset_index):
 
     assert passed_all, f"Tool call correctness failed for dataset {dataset_index}"
 
+# Rule-based test: Check if news articles are present and have a specific structure (Title, Link, Summary, Content)
 @pytest.mark.parametrize("dataset_index", ["0", "1", "2"])
 def test_news_output_format_and_presence(dataset_index):
     groq_api_key = os.getenv("GROQ_API_KEY")
@@ -196,6 +198,7 @@ def test_news_output_format_and_presence(dataset_index):
 
     assert passed_all, f"News output format or presence failed for dataset {dataset_index}"
 
+# LLM-as-a-judge: Check if each news article is relevant to the topic
 @pytest.mark.parametrize("dataset_index", ["0", "1", "2"])
 def test_news_relevancy_to_topic(dataset_index):
     groq_api_key = os.getenv("GROQ_API_KEY")

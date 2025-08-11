@@ -91,6 +91,7 @@ def generate_summary_after_tests():
     generate_final_summary()
 
 
+# Rule-based test: Check for task completion
 def test_full_workflow_outputs():
     """Run full orchestrator and validate structure."""
     groq_api = os.getenv("GROQ_API_KEY")
@@ -118,6 +119,7 @@ def test_full_workflow_outputs():
     assert passed, "Orchestrator failed to produce valid outputs."
 
 
+# LLM-as-a-Judge: Test semantic consistency between topics, articles, and newsletter
 def test_orchestrator_semantic_consistency():
     """Check semantic consistency between topics, articles, and newsletter."""
     groq_api = os.getenv("GROQ_API_KEY")
